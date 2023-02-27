@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>customer SIGN</title>
+    <link rel="stylesheet" href="{% static 'css/customer_sign.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="box">
+            <h3>COSTOMER SIGN</h3>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="First Name" name="db_name">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <input type="number" placeholder="Phone" name="db_phone">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="email" placeholder="E-mail" name="db_mail" id="email">
+                            <span id="span"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>image</b><input type="file" name="db_image">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="password" placeholder="Password" name="db_password">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th>
+                            <textarea name="db_addres" id="" cols="56" rows="4" placeholder="Enter address"></textarea>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <input type="submit" id="btn">
+                        </th>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+    </div>
+    <div class="container">
+        <b><a href="{% url 'commen:project_home' %}">BACK TO HOME PAGE</a></b>
+    </div>
+
+    <script>
+        $('#email').change(function () {
+            $.ajaxSetup({
+                headers: {
+                    "X-CSRFToken": $('[name=csrfmiddlewaretoken]').val()  //passing csrf token in ajax request
+                }
+            })
+
+            $.ajax({
+                url: "{% url 'commen:email_exist' %}",  // url in which ajax call is made
+                type: 'POST',  //method in which data is send
+                data: {
+                    email: $(this).val()  //sending data in json fromat here, key is email
+                },
+                success: function (response) {
+                    console.log(response.status)
+                    if(response.status == true){
+                        $('#span').html('Email Already Exist')
+                    }
+
+                    alert('email id already exists')
+                }
+            })
+            
+        })
+    </script>
+
+</body>
+
+</html>

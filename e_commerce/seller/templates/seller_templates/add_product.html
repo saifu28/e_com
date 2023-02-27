@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add product</title>
+    <link rel="stylesheet" href="{% static 'css/add_product.css' %}">
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="container_left">
+            <div class="sub">
+                <h2>MENU</h2>
+            </div>
+            <div class="sub"><a href="{% url 'seller:seller_home' %}">Home</a></div>
+            <div class="sub"><a href="{% url 'seller:product_catelogue' %}">Product Catelogue</a></div>
+            <div class="sub"><a href="{% url 'seller:add_product' %}">Add Product</a></div>
+            <div class="sub"><a href="{% url 'seller:change_password' %}">Change Password</a></div>
+            <div class="sub"><a href="{% url 'seller:seller_profile' %}">Profile</a></div>
+            <div class="sub"><a href="">Recent Orders</a></div>
+            <div class="sub"><a href="{% url 'seller:update_stock' %}">Update Stock</a></div>
+            <div class="sub"><a href="{% url 'seller:order_history' %}">Order History</a></div>
+        </div>
+        <div class="container_right">
+            <div class="seller_name">
+                <h3>ADD PRODUCT</h3>
+            </div>
+            <div class="add">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <table class="table_add">
+                        <tr>
+                            <td>
+                                <h3>{{msg}}</p3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" placeholder="PRODUCT ID" name="product_id">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" placeholder="Product Name" name="product_name">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <textarea name="discription" id="" cols="50" rows="6" placeholder="Discription"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="number" placeholder="stock" name="stock">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="number" placeholder="Price" name="price">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="file" name="image">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input id="btn" type="submit">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/approve_seller.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <title>APPROVE SELLER</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">APPROVE SELLER</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'e_admin:e_admin_home' %}">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'e_admin:approve_seller' %}">APPROVE SELLER</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'e_admin:view_seller' %}">VIEW SELLER</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'e_admin:view_costumer' %}">VIEW COSTUMER</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'e_admin:admin_login' %}">LOGIN</a>
+                    </li> 
+                 </ul>
+            </div>
+        </div>
+    </nav>
+
+    <table class="table1">
+        <tr>
+            <th>S NO</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Account No</th>
+            <th>IFSC</th>
+            <th>Companey Name</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+      
+    </table>
+
+
+
+
+</body>
+
+</html>

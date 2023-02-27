@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
+
+    <style>
+        .header {
+            text-align: center;
+            background-color: beige;
+        }
+
+        .details {
+            background-color: rgb(245, 245, 245);
+            padding: 10px;
+            text-align: center;
+
+        }
+
+        .line {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+
+        }
+
+        #btn {
+            margin-top: 20px;
+
+        }
+
+        #body_box {
+            margin-top: 30px;
+            background-color: whitesmoke;
+        }
+
+        .edit {
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .edit table {
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Profile</h1>
+    </div>
+    <div class="details">
+        <div class="line">
+            <span>Name :{{data.customer_name}}</span> <span></span>
+        </div>
+        <div class="line">
+            <span>Email :{{data.customer_mail}}</span>
+        </div>
+        <div class="line">
+            <span>Shipping Address :{{data.customer_addres}}</span>
+        </div>
+        <div class="line">
+            <span>Phone Number :{{data.customer_phone}}</span>
+        </div>
+        <div>
+            <button  onclick="editTask()" id="btn">Edit</button>
+        </div>
+    </div>
+
+    <div id="body_box" style="display: none;">
+        <div class="edit">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>
+                            <label for="">Name :</label>
+                        </td>
+                        <td>
+                            <input type="text" name="edit_name" id="edit_name" value="{{data.customer_name}}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="">Email :</label>
+                        </td>
+                        <td>
+                            <input type="email" name="edit_mail" id="edit_mail">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="">Shipping address :</label>
+                        </td>
+                        <td>
+                            <input type="text" name="edit_shipping" id="edit_shipping">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="">Phone :</label>
+                        </td>
+                        <td>
+                            <input type="text" name="edit_phone" id="edit_phone">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                        </th>
+                        <th>
+                            <input type="submit">
+
+                        </th>
+                    </tr>
+
+                </table>
+            </form>
+
+        </div>
+
+
+
+
+    </div>
+
+
+    <script>
+        function editTask() {
+           
+            var body_box = document.getElementById('body_box')
+            body_box.style.display = ''
+            
+        }
+
+
+    </script>
+</body>
+
+</html>

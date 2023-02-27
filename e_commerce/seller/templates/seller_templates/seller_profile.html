@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>seller profile</title>
+    <style>
+        .header {
+            text-align: center;
+            background-color: beige;
+        }
+
+        .details {
+            background-color: rgb(245, 245, 245);
+            padding: 10px;
+            text-align: center;
+
+        }
+
+        .line {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>seller profile</h1>
+    </div>
+    <div class="details">
+        <div class="line">
+            <span>Name :</span> <span>{{data.seller_first_name}}</span>
+        </div>
+        <div class="line">
+            <span>Email : <span>{{data.mail}}</span> </span>
+        </div>
+        <div class="line">
+            <span>Shipping Address : <span>{{data.address}}</span> </span>
+        </div>
+        <div class="line">
+            <span>Phone Number : {{data.phone}} </span>
+        </div>
+    </div>
+</body>
+
+</html>

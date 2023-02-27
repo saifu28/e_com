@@ -1,0 +1,109 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'shoe_static/shoes.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'shoe_static\Bootstrap\css\bootstrap.css'%}">
+</head>
+<title>Shoes</title>
+<link rel="stylesheet" href="">
+<style>
+    .button {
+        /* font-family: "Poppins"; */
+        font-weight: bold;
+        background-color: transparent;
+        border: none;
+        color: rgb(0, 0, 0);
+        padding: 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        box-shadow: 5px 5px 10px #888;
+    }
+
+    #heart {
+        outline-style: 1px solid black;
+    }
+
+    .header {
+        text-align: center;
+        background-color: rgb(214, 213, 213);
+    }
+
+    .product {
+        margin-top: 7px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-row-gap: 20px;
+
+    }
+
+    .card {
+        width: 250px;
+        background-color: whitesmoke;
+        margin: 10px;
+        border-radius: 7px;
+    }
+
+    .b_image {
+        padding: 20px;
+
+    }
+
+    .b_image img {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .detail {
+        font-family: Arial, Helvetica, sans-serif;
+        margin-left: 20px;
+
+    }
+</style>
+
+<div class="header">
+    <h1 style="font-family: sans-serif;">PRODUCT</h1>
+</div>
+<div class="container">
+
+    <div class="product">
+
+        {% for i in data %}
+        <div class="card">
+            <div class="b_image">
+                <img src="{{i.image.url}}" alt="">
+            </div>
+            <div class="detail">
+                <b><span>{{i.product_name}}</span></b>
+                <br><br>
+                <b>Discription : {{i.discription}}</b>
+                <br>
+                <b>Stock :{{i.stock}}</b>
+                <br>
+                <a href="{% url 'customer:product_dtls' i.id %}"><button>Buy now</button></a>
+
+            </div>
+        </div>
+        {% endfor %}
+
+
+
+
+
+    </div>
+
+
+</div>
+
+<a href="{% url 'customer:customer_home' %}">back to homepage</a>

@@ -1,0 +1,26 @@
+body{
+    background-color: rgb(10, 29, 11);
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+.box{
+    margin-top: 200px;
+    padding: 20px;
+    background-color: whitesmoke;
+    border-radius: 9px;
+}
+.box input{
+    width: 300px;
+    height: 22px;
+    margin-top: 10px;
+    
+}
+
+#back{
+    margin-top: 30px;
+}
+#back a{
+    color: white;
+}

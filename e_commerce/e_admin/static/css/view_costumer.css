@@ -1,0 +1,22 @@
+.table1{
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+th{
+    background-color: rgb(16, 29, 29) ;
+    color: white;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+td{
+    background-color: black;
+    color: white;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

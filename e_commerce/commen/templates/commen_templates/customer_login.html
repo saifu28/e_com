@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COSTUMER LOGIN</title>
+    <link rel="stylesheet" href="{% static 'css/customer_login.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <th>COSTUMER LOGIN</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="email" placeholder="E-mail" name="db_mail">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="password" placeholder="Password" name="db_password">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a id="forgot" href=""><b>Forgot password ?</b></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit">
+                            {{msg}}
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <b id="back"><a href="{% url 'commen:project_home' %}">BACK TO HOME PAGE</a></b>
+    </div>
+</body>
+
+</html>

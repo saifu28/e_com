@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nav {
+            width: 100%;
+            background-color: black;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .nav b {
+            color: white;
+            font-size: 30px;
+            font-family: sans-serif;
+        }
+
+        .main {
+            width: 100%;
+        }
+
+
+        .table1 {
+            margin-top: 100px;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+        th {
+            background-color: teal;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        td {
+            background-color: black;
+            color: white;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        img{
+            width: 50px;
+           
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav"><b>MY CART</b></div>
+
+        <div class="main">
+
+            <table class="table1">
+                <tr>
+                    <th>SL</th>
+                    <th>PRODUCT IMG</th>
+                    <th>NAME</th>
+                    <th>PRICE</th>
+                    <th>QTY</th>
+                    <TH>TOTEL</TH>
+                    <th>REMOVE</th>
+                </tr>
+                
+                <tbody>
+                   
+                    {% for i in data %}
+                    <tr>
+                       
+                        <td>{{forloop.counter}}</td>
+                        <td><img src="{{i.product.image.url}}" alt=""></td>
+                        <td>{{i.product.product_name}}</td>
+                        <td>{{i.product.price}}</td>
+                        <td>{{i.quantity}}</td>
+                        <td>{{i.total}}</td>
+                        <td><a href="{% url 'customer:remove' i.product_id %}"><button>Remove</button></a></td>
+                     
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+               
+
+            </table>
+
+        </div>
+
+
+    </div>
+<a href="{% url 'customer:customer_home' %}">back to homepage</a>
+
+</body>
+
+</html>
